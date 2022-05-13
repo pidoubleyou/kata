@@ -13,6 +13,25 @@ int beeramid(double bonus, double price) {
     return i;
 }
 
+//-----------------------------------------------------------
+// Recursive solution
+int recursive(int level, int bottles) {
+  int sum = level*level;
+  if (sum > bottles) {
+    return level - 1;
+  }
+  return recursive(level + 1, bottles - sum);
+}
+
+// Returns number of complete beeramid levels
+int beeramid(double bonus, double price) {
+    int bottles = bonus/price;
+
+    return recursive(0, bottles);
+}
+
+
+//-----------------------------------------------------------
 #include <criterion/criterion.h>
 Test(beeramid, should_pass_some_fixed_tests) {
   cr_assert_eq(beeramid(1500, 2), 12);
