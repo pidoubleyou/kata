@@ -2,7 +2,6 @@
 #include <string.h>
 
 int *findStartPosition(const int *maze, size_t dimension) {
-  int *actual = maze;
   int *max = maze + dimension*dimension;
   for(int *actual=maze; actual <= max; actual++) {
     if (*actual == 2) {
